@@ -48,7 +48,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            min-width: 0; /* Previne estouro de flex em telas menores */
+            min-width: 0;
         }
 
         .brasao-img {
@@ -225,6 +225,52 @@
             transform: translateX(4px);
         }
 
+        /* Formulario Estilos */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--pmesp-light-gray);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--pmesp-border);
+            border-radius: 4px;
+            color: var(--pmesp-white);
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--pmesp-red);
+        }
+
+        .btn-submit {
+            background-color: var(--pmesp-red);
+            color: var(--pmesp-white);
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #a00c24;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -235,7 +281,6 @@
             background-color: var(--pmesp-black);
         }
 
-        /* Ajustes para manter o mesmo layout no celular sem quebrar palavras */
         @media (max-width: 600px) {
             header {
                 padding: 12px 15px;
@@ -337,6 +382,78 @@
                     </svg>
                 </div>
             </a>
+
+            <!-- Card 3: Solicitação de Folgas -->
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="icon-box">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+                            </svg>
+                        </div>
+                        <span class="card-tag">Solicitação</span>
+                    </div>
+                    <div class="card-body">
+                        <h2>Lançamento de Folgas</h2>
+                        <form id="formFolgas">
+                            <div class="form-group">
+                                <label for="re">RE com dígito:</label>
+                                <input type="text" id="re" name="re" required placeholder="Ex: 123456-7">
+                            </div>
+                            <div class="form-group">
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nome" name="nome" required placeholder="Ex: Sd PM Silva">
+                            </div>
+                            <div class="form-group">
+                                <label for="data_folga">Data Desejada:</label>
+                                <input type="date" id="data_folga" name="data_folga" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo_folga">Tipo de Folga:</label>
+                                <select id="tipo_folga" name="tipo_folga" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="Mensal">Mensal</option>
+                                    <option value="Produtividade">Produtividade</option>
+                                    <option value="Horas Passadas">Horas Passadas</option>                                    
+                                    <option value="Concessão">Concessão</option>
+                                    <option value="Outra">Outra</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="especifique">Especifique (se outros):</label>
+                                <input type="text" id="especifique" name="especifique">
+                            </div>
+                            <button type="submit" class="btn-submit">Enviar Solicitação</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Visualizar Folgas -->
+            <a href="https://calendar.google.com/calendar/u/0/newembed?src=3bpmioficiais@gmail.com&ctz=America/Sao_Paulo" target="_blank" rel="noopener noreferrer" class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="icon-box">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
+                            </svg>
+                        </div>
+                        <span class="card-tag">Escala</span>
+                    </div>
+                    <div class="card-body">
+                        <h2>Visualizar Folgas</h2>
+                        <p>Consulte a agenda oficial do batalhão com a programação e conciliação das folgas lançadas.</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span>Abrir Calendário</span>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </a>
+
         </div>
     </main>
 
@@ -345,5 +462,35 @@
         <p>Linktree 3º BC &bull; Uso Restrito PMESP &bull; Desenvolvido para Acesso Rápido</p>
     </footer>
 
+    <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxkyDcOPE1H_6EicaPb4QJntLP8I0EPX2iaD0p2BNNPqbLC4Hl0gdvKy6GEe86jjeDQ/exec';
+    const form = document.getElementById('formFolgas');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        // Converte os dados em formato aceito pela API sem problemas de CORS
+        const formData = new URLSearchParams({
+            re: document.getElementById('re').value,
+            nome: document.getElementById('nome').value,
+            data_folga: document.getElementById('data_folga').value,
+            tipo_folga: document.getElementById('tipo_folga').value,
+            especifique: document.getElementById('especifique').value
+        });
+
+        fetch(scriptURL, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            alert('Solicitação enviada e registrada no calendário com sucesso!');
+            form.reset();
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao enviar solicitação!');
+        });
+    });
+</script>
 </body>
 </html>
