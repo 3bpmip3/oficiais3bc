@@ -32,7 +32,7 @@
             min-height: 100vh;
         }
 
-        /* Top Bar / Header */
+        /* Header mantendo visual único em todas as telas */
         header {
             background-color: var(--pmesp-black);
             border-bottom: 3px solid var(--pmesp-red);
@@ -40,7 +40,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            gap: 20px;
         }
 
         .header-brand {
@@ -49,11 +50,11 @@
             gap: 15px;
         }
 
-        /* Imagem do Brasão_3BC */
         .brasao-img {
             height: 85px;
             width: auto;
             object-fit: contain;
+            flex-shrink: 0;
         }
 
         .header-titles h1 {
@@ -73,7 +74,7 @@
         .badge-status {
             background-color: rgba(200, 16, 46, 0.15);
             border: 1px solid var(--pmesp-red);
-            color: #00ff22;
+            color: #4dff56;
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.75rem;
@@ -83,6 +84,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .status-dot {
@@ -102,25 +105,6 @@
             flex-grow: 1;
         }
 
-        .section-title {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--pmesp-light-gray);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex-grow: 1;
-            height: 1px;
-            background-color: var(--pmesp-border);
-        }
-
-        /* Dashboard Grid */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -146,9 +130,14 @@
         .card:hover {
             background-color: var(--pmesp-hover);
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
             border-left-color: var(--pmesp-red);
+        }
+
+        .card:focus-visible {
+            outline: 2px solid var(--pmesp-white);
+            outline-offset: 4px;
         }
 
         .card-header {
@@ -180,7 +169,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            background-color: rgba(0,0,0,0.3);
+            background-color: rgba(0, 0, 0, 0.3);
             padding: 4px 8px;
             border-radius: 4px;
             color: var(--pmesp-light-gray);
@@ -229,41 +218,21 @@
             transform: translateX(4px);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 25px;
-            font-size: 1.0rem;
+            font-size: 0.9rem;
             color: var(--pmesp-light-gray);
             border-top: 1px solid var(--pmesp-border);
             background-color: var(--pmesp-black);
-        }
-
-        /* Responsive Adjustment */
-        @media (max-width: 600px) {
-            header {
-                padding: 15px 20px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-
-            .badge-status {
-                align-self: flex-start;
-            }
-
-            main {
-                padding: 30px 15px;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Barra Superior -->
     <header>
         <div class="header-brand">
-            <img src="Brasão_3BC.png" alt="Brasão 3BC" class="brasao-img">
+            <img src="Brasão_3BC.png" alt="Brasão do 3º Batalhão de Caçadores" class="brasao-img">
             <div class="header-titles">
                 <h1>Polícia Militar do Estado de São Paulo</h1>
                 <p>Linktree - 3º Batalhão de Caçadores</p>
@@ -275,17 +244,13 @@
         </div>
     </header>
 
-    <!-- Conteúdo Principal -->
     <main>
-   
         <div class="grid-container">
-            <!-- Card 1: Viaturas -->
             <a href="https://docs.google.com/spreadsheets/d/19HPuo13AXZRe3hMUMIQBvqwq9lf-hLsbTUOxkqDMi4c/edit?usp=drive_link" target="_blank" rel="noopener noreferrer" class="card">
                 <div>
                     <div class="card-header">
                         <div class="icon-box">
-                            <!-- Ícone de Viatura / Veículo -->
-                            <svg viewBox="0 0 24 24">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                 <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
                             </svg>
                         </div>
@@ -298,19 +263,17 @@
                 </div>
                 <div class="card-footer">
                     <span>Acessar Planilha</span>
-                    <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
             </a>
 
-            <!-- Card 2: Efetivo -->
             <a href="https://docs.google.com/spreadsheets/d/1AMWgGsep2hu1gIB7h6hqOBqyu3tgyKZ0FChFaM9GAOk/edit?usp=drive_link" target="_blank" rel="noopener noreferrer" class="card">
                 <div>
                     <div class="card-header">
                         <div class="icon-box">
-                            <!-- Ícone de Pessoal / Efetivo -->
-                            <svg viewBox="0 0 24 24">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                 <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
                             </svg>
                         </div>
@@ -323,7 +286,7 @@
                 </div>
                 <div class="card-footer">
                     <span>Acessar Planilha</span>
-                    <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
@@ -331,7 +294,6 @@
         </div>
     </main>
 
-    <!-- Rodapé -->
     <footer>
         <p>Linktree 3º BC &bull; Uso Restrito PMESP &bull; Desenvolvido para Acesso Rápido</p>
     </footer>
