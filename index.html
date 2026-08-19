@@ -32,7 +32,7 @@
             min-height: 100vh;
         }
 
-        /* Header mantendo visual único em todas as telas */
+        /* Top Bar / Header */
         header {
             background-color: var(--pmesp-black);
             border-bottom: 3px solid var(--pmesp-red);
@@ -48,6 +48,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            min-width: 0; /* Previne estouro de flex em telas menores */
         }
 
         .brasao-img {
@@ -57,24 +58,30 @@
             flex-shrink: 0;
         }
 
+        .header-titles {
+            min-width: 0;
+        }
+
         .header-titles h1 {
             font-size: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 700;
             color: var(--pmesp-white);
+            line-height: 1.2;
         }
 
         .header-titles p {
             font-size: 1.1rem;
             color: var(--pmesp-light-gray);
             letter-spacing: 0.5px;
+            margin-top: 4px;
         }
 
         .badge-status {
             background-color: rgba(200, 16, 46, 0.15);
             border: 1px solid var(--pmesp-red);
-            color: #4dff56;
+            color: #4dff4d;
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.75rem;
@@ -218,6 +225,7 @@
             transform: translateX(4px);
         }
 
+        /* Footer */
         footer {
             text-align: center;
             padding: 25px;
@@ -226,10 +234,45 @@
             border-top: 1px solid var(--pmesp-border);
             background-color: var(--pmesp-black);
         }
+
+        /* Ajustes para manter o mesmo layout no celular sem quebrar palavras */
+        @media (max-width: 600px) {
+            header {
+                padding: 12px 15px;
+                gap: 10px;
+            }
+
+            .header-brand {
+                gap: 10px;
+            }
+
+            .brasao-img {
+                height: 48px;
+            }
+
+            .header-titles h1 {
+                font-size: 0.85rem;
+                letter-spacing: 0.5px;
+            }
+
+            .header-titles p {
+                font-size: 0.75rem;
+            }
+
+            .badge-status {
+                font-size: 0.65rem;
+                padding: 4px 8px;
+            }
+
+            main {
+                padding: 25px 15px;
+            }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Header / Barra Superior -->
     <header>
         <div class="header-brand">
             <img src="Brasão_3BC.png" alt="Brasão do 3º Batalhão de Caçadores" class="brasao-img">
@@ -244,8 +287,10 @@
         </div>
     </header>
 
+    <!-- Conteúdo Principal -->
     <main>
         <div class="grid-container">
+            <!-- Card 1: Viaturas -->
             <a href="https://docs.google.com/spreadsheets/d/19HPuo13AXZRe3hMUMIQBvqwq9lf-hLsbTUOxkqDMi4c/edit?usp=drive_link" target="_blank" rel="noopener noreferrer" class="card">
                 <div>
                     <div class="card-header">
@@ -269,6 +314,7 @@
                 </div>
             </a>
 
+            <!-- Card 2: Efetivo -->
             <a href="https://docs.google.com/spreadsheets/d/1AMWgGsep2hu1gIB7h6hqOBqyu3tgyKZ0FChFaM9GAOk/edit?usp=drive_link" target="_blank" rel="noopener noreferrer" class="card">
                 <div>
                     <div class="card-header">
@@ -294,6 +340,7 @@
         </div>
     </main>
 
+    <!-- Rodapé -->
     <footer>
         <p>Linktree 3º BC &bull; Uso Restrito PMESP &bull; Desenvolvido para Acesso Rápido</p>
     </footer>
