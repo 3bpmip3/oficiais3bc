@@ -12,7 +12,7 @@
             --pmesp-hover: #323843;
             --pmesp-red: #c8102e;
             --pmesp-white: #ffffff;
-            --pmesp-light-gray: #a0a6b2;
+            --pmesp-light-gray: #b2a0ad;
             --pmesp-border: #3a414e;
         }
 
@@ -253,6 +253,13 @@
             border-color: var(--pmesp-red);
         }
 
+        /* Estilização para as opções suspensas do select */
+        .form-group select option {
+            background-color: var(--pmesp-card-bg);
+            color: var(--pmesp-white);
+            padding: 10px;
+        }
+
         .btn-submit {
             background-color: var(--pmesp-red);
             color: var(--pmesp-white);
@@ -401,9 +408,27 @@
                                 <label for="re">RE com dígito:</label>
                                 <input type="text" id="re" name="re" required placeholder="Ex: 123456-7">
                             </div>
-                            <div class="form-group">
+                             <div class="form-group">
                                 <label for="nome">Nome:</label>
-                                <input type="text" id="nome" name="nome" required placeholder="Ex: Sd PM Silva">
+                                <select id="nome" name="nome" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="Ten Cel PM Eduardo">Ten Cel PM Eduardo</option>
+                                    <option value="Maj PM Martins Ribeiro">Maj PM Martins Ribeiro</option>
+                                    <option value="Maj PM Luana">Maj PM Luana</option>
+                                    <option value="Cap PM Cravero">Cap PM Cravero</option>
+                                    <option value="Cap PM Del Vecchio">Cap PM Del Vecchio</option>
+                                    <option value="Cap PM André Luís">Cap PM André Luís</option>
+                                    <option value="Ten PM Felipe Carvalho">Ten PM Felipe Carvalho</option>
+                                    <option value="Ten PM Ribeiro">Ten PM Ribeiro</option>
+                                    <option value="Ten PM Feitosa">Ten PM Feitosa</option>
+                                    <option value="Ten PM Natalia">Ten PM Natalia</option>
+                                    <option value="Ten PM Derick">Ten PM Derick</option>
+                                    <option value="Ten PM Chevchuk">Ten PM Chevchuk</option>
+                                    <option value="Ten PM Zanardo">Ten PM Zanardo</option>
+                                    <option value="Ten PM Larissa Muniz">Ten PM Larissa Muniz</option>
+                                    <option value="Ten PM Borgo">Ten PM Borgo</option>
+
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="data_folga">Data Desejada:</label>
@@ -423,7 +448,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="especifique">Especifique (se outros):</label>
+                                <label for="especifique">Especifique:</label>
                                 <input type="text" id="especifique" name="especifique">
                             </div>
                             <button type="submit" class="btn-submit">Enviar Solicitação</button>
@@ -465,7 +490,7 @@
     </footer>
 
     <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxkyDcOPE1H_6EicaPb4QJntLP8I0EPX2iaD0p2BNNPqbLC4Hl0gdvKy6GEe86jjeDQ/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzXXpB9nGx0jw9xl5gyQ4_v8CTVP8pwov_qh6WjwfRIt41QAuwMR8svpCEq0Hq0pYB2Zg/exec';
     const form = document.getElementById('formFolgas');
 
     form.addEventListener('submit', e => {
